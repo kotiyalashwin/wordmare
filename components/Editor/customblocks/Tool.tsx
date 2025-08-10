@@ -4,13 +4,8 @@ import {
   defaultBlockSpecs,
 } from "@blocknote/core";
 import { createReactBlockSpec } from "@blocknote/react";
-import { BlockNoteView } from "@blocknote/mantine";
-import { useCreateBlockNote } from "@blocknote/react";
 import React, { useState } from "react";
 
-// ==========================================
-// TOOL DETAILS COMPONENT (Opens on Click)
-// ==========================================
 
 interface ToolDetailsProps {
   toolType: "Generative AI" | "Deep Research" | "Text-to-Speech";
@@ -32,7 +27,7 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
         "Code assistance",
         "Creative writing support",
       ],
-      icon: "🤖",
+      // icon: "🤖",
       color: "#3b82f6",
       bgColor: "#eff6ff",
     },
@@ -46,7 +41,7 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
         "Data visualization",
         "Report generation",
       ],
-      icon: "🔍",
+      // icon: "🔍",
       color: "#10b981",
       bgColor: "#f0fdf4",
     },
@@ -60,7 +55,7 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
         "Language support",
         "Audio export",
       ],
-      icon: "🔊",
+      // icon: "🔊",
       color: "#f59e0b",
       bgColor: "#fffbeb",
     },
@@ -136,7 +131,7 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
             borderBottom: "2px solid #f3f4f6",
           }}
         >
-          <div
+          {/* <div
             style={{
               fontSize: "48px",
               backgroundColor: tool.bgColor,
@@ -145,7 +140,7 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
             }}
           >
             {tool.icon}
-          </div>
+          </div> */}
           <div>
             <h2
               style={{
@@ -245,10 +240,6 @@ const ToolDetailsComponent: React.FC<ToolDetailsProps> = ({
   );
 };
 
-// ==========================================
-// TOOL BADGE BLOCK DEFINITION
-// ==========================================
-
 export const ToolBadgeBlock = createReactBlockSpec(
   {
     type: "tool",
@@ -260,7 +251,7 @@ export const ToolBadgeBlock = createReactBlockSpec(
       size: {
         default: "medium" as const,
         values: ["small", "medium", "large"] as const,
-      },
+      },  
       variant: {
         default: "default" as const,
         values: ["default", "outlined", "filled"] as const,
@@ -277,19 +268,16 @@ export const ToolBadgeBlock = createReactBlockSpec(
       // Define styling for different tools
       const toolConfigs = {
         "Generative AI": {
-          icon: "🤖",
           color: "#3b82f6",
           bgColor: "#eff6ff",
           borderColor: "#93c5fd",
         },
         "Deep Research": {
-          icon: "🔍",
           color: "#10b981",
           bgColor: "#f0fdf4",
           borderColor: "#86efac",
         },
         "Text-to-Speech": {
-          icon: "🔊",
           color: "#f59e0b",
           bgColor: "#fffbeb",
           borderColor: "#fde68a",
@@ -399,18 +387,16 @@ export const ToolBadgeBlock = createReactBlockSpec(
           {/* Badge */}
           <div style={{ margin: "8px 0", display: "inline-block" }}>
             <span
-              style={{
-                ...getVariantStyles(),
-                ...getHoverStyles(),
-              }}
+                style={{
+                  ...getVariantStyles(),
+                  ...getHoverStyles(),
+                }}
+              className=""
               onClick={handleClick}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               title={`Click to learn more about ${block.props.toolType}`}
             >
-              <span style={{ fontSize: sizeConfig.iconSize }}>
-                {config.icon}
-              </span>
               <span>{block.props.toolType}</span>
             </span>
           </div>

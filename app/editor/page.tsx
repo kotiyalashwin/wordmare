@@ -1,7 +1,7 @@
 import React from "react";
 import { poppins } from "../fonts";
-import InputBox from "../components/InputBox";
-import Editor from "../components/Editor/Editor";
+import InputBox from "../../components/core/InputBox";
+import Editor from "../../components/Editor/Editor";
 
 const page = () => {
   return (

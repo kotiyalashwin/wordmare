@@ -1,27 +1,18 @@
-import { BlockNoteEditor } from "@blocknote/core";
-import { DefaultReactSuggestionItem } from "@blocknote/react";
+import { BlockNoteEditor, insertOrUpdateBlock } from "@blocknote/core";
 import { FaBrain } from "react-icons/fa";
-
-// const getAiToolsItems =
 
 export const getToolSlashMenuItems = (editor: BlockNoteEditor<any>) => [
   {
     title: "Generative AI Tool",
     onItemClick: () => {
-      editor.insertBlocks(
-        [
-          {
-            type: "tool",
-            props: {
-              toolType: "Generative AI",
-              size: "medium",
-              variant: "default",
-            },
-          },
-        ],
-        editor.getTextCursorPosition().block,
-        "after"
-      );
+      insertOrUpdateBlock(editor, {
+        type: "tool",
+        props: {
+          toolType: "Generative AI",
+          size: "medium",
+          variant: "default",
+        },
+      });
     },
     aliases: ["ai", "generative", "gpt", "llm"],
     group: "Tools",
@@ -30,9 +21,9 @@ export const getToolSlashMenuItems = (editor: BlockNoteEditor<any>) => [
   {
     title: "Deep Research Tool",
     onItemClick: () => {
-      editor.insertBlocks(
-        [
-          {
+
+      insertOrUpdateBlock(editor , 
+         {
             type: "tool",
             props: {
               toolType: "Deep Research",
@@ -40,10 +31,7 @@ export const getToolSlashMenuItems = (editor: BlockNoteEditor<any>) => [
               variant: "default",
             },
           },
-        ],
-        editor.getTextCursorPosition().block,
-        "after"
-      );
+        )
     },
     aliases: ["research", "search", "analyze", "investigation"],
     group: "Tools",
@@ -52,9 +40,8 @@ export const getToolSlashMenuItems = (editor: BlockNoteEditor<any>) => [
   {
     title: "Text-to-Speech Tool",
     onItemClick: () => {
-      editor.insertBlocks(
-        [
-          {
+      insertOrUpdateBlock(editor,
+        {
             type: "tool",
             props: {
               toolType: "Text-to-Speech",
@@ -62,10 +49,7 @@ export const getToolSlashMenuItems = (editor: BlockNoteEditor<any>) => [
               variant: "default",
             },
           },
-        ],
-        editor.getTextCursorPosition().block,
-        "after"
-      );
+       )
     },
     aliases: ["tts", "speech", "voice", "audio", "narration"],
     group: "Tools",

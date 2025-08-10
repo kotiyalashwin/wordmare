@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import useInputStore from '@/app/store/inputs';
+import useInputStore from '@/store/inputs';
 
 // shadcn/ui components
 import { Dialog, DialogTrigger, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
