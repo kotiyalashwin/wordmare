@@ -19,7 +19,6 @@ export const InputBadgeBlock = createReactBlockSpec(
     render: (props) => {
       const {block} = props
       const selectedInput = block.props.selectedInput
-      console.log(selectedInput)
       return (
        
         <div className="flex gap-2 mt-4 flex-wrap">

@@ -19,22 +19,23 @@ interface InputStore {
 
 const useInputStore = create<InputStore>((set, get) => ({
   // State
-  inputs: [],
+  inputs: ["task1", "task2"],
 
   // Actions
-  addInput: (input: string) => set((state) => ({
-    inputs: [...state.inputs, input]
-  })),
+  addInput: (input: string) =>
+    set((state) => ({
+      inputs: [...state.inputs, input],
+    })),
 
-  removeInput: (index: number) => set((state) => ({
-    inputs: state.inputs.filter((_, i) => i !== index)
-  })),
+  removeInput: (index: number) =>
+    set((state) => ({
+      inputs: state.inputs.filter((_, i) => i !== index),
+    })),
 
-  updateInput: (index: number, newValue: string) => set((state) => ({
-    inputs: state.inputs.map((input, i) => 
-      i === index ? newValue : input
-    )
-  })),
+  updateInput: (index: number, newValue: string) =>
+    set((state) => ({
+      inputs: state.inputs.map((input, i) => (i === index ? newValue : input)),
+    })),
 
   clearInputs: () => set({ inputs: [] }),
 

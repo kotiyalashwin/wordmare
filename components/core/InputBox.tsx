@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import useInputStore from '@/store/inputs';
 
 // shadcn/ui components
-import { Dialog, DialogTrigger, DialogContent, DialogFooter, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger, DialogContent, DialogFooter, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -35,12 +35,15 @@ const InputBox = () => {
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="default">Add Input</Button>
+          <Button variant="outline" className='text-teal-800 border-teal-400 border-2'>Add Input</Button>
         </DialogTrigger>
         <DialogContent>
             <DialogTitle>
                 Input name
             </DialogTitle>
+            <DialogDescription>
+              These inputs will be asked when you run the flow
+            </DialogDescription>
           <form onSubmit={handleAdd}>
             <Input
               placeholder="Enter input"

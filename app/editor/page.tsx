@@ -1,31 +1,38 @@
-import React from "react";
-import { poppins } from "../fonts";
-import InputBox from "../../components/core/InputBox";
-import Editor from "../../components/Editor/Editor";
+"use client";
 
-const page = () => {
+import { EditorComponent } from "@/components/Editor/Editor";
+import { Button } from "@/components/ui/button";
+import {
+  SidebarProvider,
+  useSidebar,
+  Sidebar,
+} from "@/components/core/sidebar";
+import React from "react";
+import { MainContentSidebar } from "@/components/sidebar/maincontent";
+import { getFlowName } from "@/hooks/getName";
+
+const PageContent = () => {
+  const name = getFlowName();
+
   return (
-    <div className="w-screen h-screen flex justify-center bg-white">
-      <div className="max-w-6xl w-full">
-        <div className="w-full p-4">
-          <input
-            className={`w-full ${poppins.className}
-                 placeholder:text-neutral-400
-                 text-black
-                 font-bold
-                 text-7xl outline-none`}
-            type="text"
-            placeholder="Flow Name"
-          />
-          <InputBox />
-        </div>
-        <div className="h-[4px] w-full bg-neutral-400/25" />
-        <div className="p-4">
-          <Editor />
-        </div>
+    <div className="w-screen overflow-y-hidden p-4 rounded-lg justify-center h-screen flex bg-gray-400/10 ">
+      <div className="max-w-5xl w-full shadow-xl bg-white relative">
+        <EditorComponent />
       </div>
+
+      <Sidebar title={name}>
+        <MainContentSidebar />
+      </Sidebar>
     </div>
   );
 };
 
-export default page;
+const Page = () => {
+  return (
+    <SidebarProvider>
+      <PageContent />
+    </SidebarProvider>
+  );
+};
+
+export default Page;
