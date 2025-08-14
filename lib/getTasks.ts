@@ -2,7 +2,6 @@ import { TaskContent, useTaskStore } from "@/store/task";
 import { BlockNoteEditor } from "@blocknote/core";
 export function processBlocksAndStoreContent(editor: BlockNoteEditor<any>) {
   const blocks = editor.document;
-  console.log(blocks);
 
   if (!blocks || blocks.length === 0) {
     useTaskStore.getState().setTasks([]);
@@ -49,5 +48,4 @@ export function processBlocksAndStoreContent(editor: BlockNoteEditor<any>) {
   }
 
   useTaskStore.getState().setTasks(tasks);
-  return tasks;
 }

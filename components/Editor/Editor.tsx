@@ -39,13 +39,9 @@ export const EditorComponent = () => {
     <>
       <div className="w-full p-4">
         <Button
-          // onClick={() => {
-          //   const tasks = processBlocksAndStoreContent(editor);
-          //   console.log(tasks);
-          // }}
           onClick={() => {
             processBlocksAndStoreContent(editor);
-            toggleSidebar;
+            toggleSidebar();
           }}
           className="absolute z-10  bottom-10 left-1/2 -translate-x-1/2"
         >
